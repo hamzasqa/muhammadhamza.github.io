@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Hamza — Sr. QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07111f;
+    --bg2: #0d1e30;
+    --bg3: #0f2542;
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --green: #10b981;
+    --text: #e2eaf4;
+    --muted: #7a9bb5;
+    --border: #1a3450;
+    --card: #0d1e30;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 6%;
+    background: rgba(7,17,31,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px; font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 13px;
+    letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: #fff; padding: 8px 20px;
+    border-radius: 6px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #2563eb; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 6% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 380px; gap: 60px;
+    align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+    color: var(--green); padding: 6px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 800; line-height: 1.05;
+    color: #fff; margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-role {
+    font-size: 18px; color: var(--muted); margin-bottom: 20px; font-weight: 400;
+  }
+  .hero-quote {
+    font-size: 15px; color: var(--muted); line-height: 1.7;
+    border-left: 3px solid var(--accent); padding-left: 16px;
+    margin-bottom: 36px; max-width: 520px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #fff; padding: 13px 28px;
+    border-radius: 8px; text-decoration: none; font-weight: 600;
+    font-size: 14px; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--text); padding: 13px 28px;
+    border-radius: 8px; text-decoration: none; font-weight: 500;
+    font-size: 14px; transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* HERO CARD */
+  .hero-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 16px;
+  }
+  .hero-card-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: #fff;
+  }
+  .hero-card-name { font-weight: 600; font-size: 16px; color: #fff; }
+  .hero-card-title { font-size: 13px; color: var(--muted); }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+  .hero-stat {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px;
+  }
+  .hero-stat-val { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--accent); }
+  .hero-stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* SECTION COMMON */
+  section { padding: 90px 6%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.1;
+  }
+  .section-sub { color: var(--muted); max-width: 560px; margin-bottom: 48px; font-size: 15px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ABOUT */
+  #about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about-block h3 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent2); margin-bottom: 10px; }
+  .about-block p { color: var(--muted); font-size: 14.5px; line-height: 1.75; }
+
+  /* NUMBERS STRIP */
+  .numbers-strip {
+    background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 48px 6%;
+  }
+  .numbers-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;
+  }
+  .number-item {}
+  .number-val { font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: var(--accent); }
+  .number-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg2); }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .exp-item {
+    padding-left: 32px; padding-bottom: 48px; position: relative;
+  }
+  .exp-item::before {
+    content: ''; position: absolute; left: -5px; top: 8px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg2);
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .exp-role { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #fff; }
+  .exp-company { font-size: 14px; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+  .exp-date {
+    font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px;
+  }
+  .exp-bullets { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .exp-bullets li { color: var(--muted); font-size: 14px; padding-left: 16px; position: relative; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 12px; top: 2px; }
+  .exp-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .metric-pill {
+    background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25);
+    color: var(--accent); font-size: 12px; padding: 4px 12px; border-radius: 20px; font-weight: 500;
+  }
+  .metric-pill.green {
+    background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); color: var(--green);
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .skill-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-bottom: 14px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    color: var(--text); font-size: 12.5px; padding: 4px 12px; border-radius: 6px;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg2); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .project-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+  .project-name { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .project-type { font-size: 12px; color: var(--accent2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .project-desc { color: var(--muted); font-size: 13.5px; line-height: 1.65; margin-bottom: 14px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tag {
+    background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
+    color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 4px;
+  }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--bg); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .cert-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .cert-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .cert-issuer { font-size: 12px; color: var(--muted); }
+
+  /* CONTACT */
+  #contact { background: var(--bg2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .contact-intro { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
+  .contact-items { display: flex; flex-direction: column; gap: 14px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px; text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .contact-item:hover { border-color: var(--accent); }
+  .contact-item-icon {
+    width: 36px; height: 36px; background: rgba(59,130,246,0.1);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .contact-item-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .contact-item-val { font-size: 14px; color: var(--text); font-weight: 500; }
+  .contact-availability {
+    background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 12px; padding: 24px;
+  }
+  .contact-avail-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .contact-avail-desc { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .avail-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .avail-pill {
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
+    color: var(--green); font-size: 12px; padding: 5px 14px; border-radius: 20px; font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 24px 6%;
+    text-align: center; color: var(--muted); font-size: 13px;
+    background: var(--bg);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .numbers-inner { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>MH</span> Muhammad Hamza</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">Open to Work · Available Now</div>
+      <h1>Muhammad<br/><span>Hamza</span></h1>
+      <p class="hero-role">Sr. QA Analyst · ISTQB-CTFL Certified · AI-Driven QA Engineer</p>
+      <p class="hero-quote">"Delivering precision-tested software through AI-native strategies, structured automation, and relentless quality ownership."</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">Contact me</a>
+        <a class="btn-outline" href="#experience">View Experience</a>
+        <a class="btn-outline" href="#projects">Projects</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="hero-card-avatar">MH</div>
+        <div>
+          <div class="hero-card-name">Muhammad Hamza</div>
+          <div class="hero-card-title">Sr. QA Engineer · Lahore, PK</div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-val">5+</div><div class="hero-stat-label">Years in QA</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">4</div><div class="hero-stat-label">Companies</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">50%</div><div class="hero-stat-label">Manual effort cut</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">10+</div><div class="hero-stat-label">Projects tested</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Certification</span><span style="color:var(--green);font-weight:600;">ISTQB-CTFL 4.0</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Platforms</span><span>Web · iOS · Android</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Status</span><span style="color:var(--green);font-weight:600;">● Available</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers-strip">
+  <div class="numbers-inner">
+    <div class="number-item"><div class="number-val">5+</div><div class="number-label">Years in QA</div></div>
+    <div class="number-item"><div class="number-val">4</div><div class="number-label">Companies</div></div>
+    <div class="number-item"><div class="number-val">10+</div><div class="number-label">Projects Tested</div></div>
+    <div class="number-item"><div class="number-val">50%</div><div class="number-label">Manual Effort Reduced</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">01 — About me</div>
+    <h2 class="section-title">QA Engineer with an<br/>AI-Native Mindset</h2>
+    <div class="about-grid">
+      <div>
+        <div class="about-block" style="margin-bottom:28px;">
+          <h3>Profile</h3>
+          <p>Senior QA Engineer with 5+ years of experience in manual, exploratory, and automation testing across web, iOS, and Android platforms. ISTQB-CTFL certified with a strong AI-native mindset, leveraging tools like ChatGPT, Copilot, and Claude to design test strategies, generate test data, and accelerate bug reproduction.</p>
+        </div>
+        <div class="about-block">
+          <h3>Approach</h3>
+          <p>Skilled in Playwright automation frameworks, API and system-level testing, and AI-powered feature validation. Known for proactive risk identification, structured bug reporting, and ownership of quality outcomes in fast-paced fintech and enterprise environments.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-block" style="margin-bottom:28px;">
+          <h3>AI-Driven QA</h3>
+          <p>Leverages prompt engineering and AI-assisted workflows to generate test cases, analyse logs, perform visual regression, and validate non-deterministic AI feature outputs — staying ahead of modern software complexity.</p>
+        </div>
+        <div class="about-block">
+          <h3>Education</h3>
+          <p>BS in Software Engineering — International Islamic University, Islamabad (2014–2018). ISTQB-CTFL 4.0 Certified. Project Management Foundations certified.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow">02 — Experience</div>
+    <h2 class="section-title">Where I've worked</h2>
+    <p class="section-sub">Four companies across fintech, enterprise SaaS, and interactive media — building quality from the ground up.</p>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Senior Software QA Engineer</div>
+            <div class="exp-company">Stewart Pakistan Pvt Ltd</div>
+          </div>
+          <span class="exp-date">Sep 2023 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Led manual & exploratory testing across web and mobile platforms, focusing on complex user flows.</li>
+          <li>Integrated testing tools to cut manual effort by 50% and accelerate delivery.</li>
+          <li>Worked on automation frameworks in Playwright, embedding them into CI/CD pipelines.</li>
+          <li>Conducted risk assessments & vulnerability security scans, mitigating quality issues early.</li>
+          <li>Published structured bug reports with reproducible steps, severity, and environment details.</li>
+          <li>Mentored junior QA engineers in automation and AI-assisted workflows.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill green">50% manual effort reduction</span>
+          <span class="metric-pill">Playwright CI/CD</span>
+          <span class="metric-pill">Security scanning</span>
+          <span class="metric-pill">Junior mentorship</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software QA Engineer</div>
+            <div class="exp-company">ILSA Interactive</div>
+          </div>
+          <span class="exp-date">Jan 2023 – Aug 2023</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Performed end-to-end manual testing across Android, iOS, and tablet platforms.</li>
+          <li>Executed smoke, sanity, regression, UAT, and performance testing.</li>
+          <li>Validated requirements and functional documentation for clarity and testability.</li>
+          <li>Proposed process improvements enhancing usability and product quality.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">Android · iOS · Tablet</span>
+          <span class="metric-pill">UAT & Performance</span>
+          <span class="metric-pill">Process improvement</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software QA Engineer</div>
+            <div class="exp-company">InvoZone Pvt Ltd</div>
+          </div>
+          <span class="exp-date">Apr 2022 – Jan 2023</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Created and maintained SQA deliverables including test cases and progress reports.</li>
+          <li>Conducted black-box testing of internal and publisher-facing applications.</li>
+          <li>Mentored junior QA engineers, fostering continuous learning.</li>
+          <li>Collaborated with UX designers to enhance user experience.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">Black-box testing</span>
+          <span class="metric-pill">UX collaboration</span>
+          <span class="metric-pill">Junior mentorship</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software QA Engineer</div>
+            <div class="exp-company">Contegris Pvt Ltd</div>
+          </div>
+          <span class="exp-date">Dec 2019 – Mar 2022</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed detailed test cases and executed functional/non-functional testing.</li>
+          <li>Performed regression, smoke, and sanity testing under Agile/Scrum frameworks.</li>
+          <li>Conducted GUI and boundary testing, resolving technical issues proactively.</li>
+        </ul>
+        <div class="exp-metrics">
+          <span class="metric-pill">Agile/Scrum</span>
+          <span class="metric-pill">GUI testing</span>
+          <span class="metric-pill">Functional & Non-functional</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">03 — Skills & Tools</div>
+    <h2 class="section-title">What I work with</h2>
+    <p class="section-sub">A full-stack QA toolkit spanning manual testing, automation, AI workflows, and collaboration.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">Testing Types</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Manual</span><span class="skill-tag">Exploratory</span><span class="skill-tag">Regression</span><span class="skill-tag">Smoke</span><span class="skill-tag">Sanity</span><span class="skill-tag">UAT</span><span class="skill-tag">Performance</span><span class="skill-tag">GUI</span><span class="skill-tag">Black-box</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Automation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Playwright</span><span class="skill-tag">CI/CD Pipelines</span><span class="skill-tag">Rest Assured</span><span class="skill-tag">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">API & System Testing</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Postman</span><span class="skill-tag">Rest Assured</span><span class="skill-tag">API Validation</span><span class="skill-tag">Data Consistency</span><span class="skill-tag">Integration Testing</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">AI Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ChatGPT</span><span class="skill-tag">GitHub Copilot</span><span class="skill-tag">Claude</span><span class="skill-tag">Cursor</span><span class="skill-tag">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">ALM & Collaboration</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span><span class="skill-tag">HP ALM</span><span class="skill-tag">Confluence</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">TestRail</span><span class="skill-tag">Zephyr</span><span class="skill-tag">Qmetry</span><span class="skill-tag">Trello</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Databases & Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Web</span><span class="skill-tag">iOS</span><span class="skill-tag">Android</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">04 — Projects</div>
+    <h2 class="section-title">What I've tested</h2>
+    <p class="section-sub">Real-world projects across social, fintech, enterprise, and omnichannel domains.</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-type">Social · Mobile</div>
+        <div class="project-name">FAYVO</div>
+        <div class="project-desc">Android & iOS social app tested for stability, usability, and cross-platform compatibility. Ensured consistent UX across device sizes and OS versions.</div>
+        <div class="project-tags"><span class="project-tag">Android</span><span class="project-tag">iOS</span><span class="project-tag">Manual</span><span class="project-tag">Cross-platform</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Fintech · POS</div>
+        <div class="project-name">SRIT Sol App</div>
+        <div class="project-desc">Point-of-sale system validation covering billing workflows, device compatibility, and end-to-end transactional accuracy under real-world conditions.</div>
+        <div class="project-tags"><span class="project-tag">POS</span><span class="project-tag">Billing</span><span class="project-tag">Device Testing</span><span class="project-tag">Functional</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Enterprise · SaaS</div>
+        <div class="project-name">Invohub</div>
+        <div class="project-desc">Enterprise system QA spanning HR, finance, and project management modules — validating complex interdependencies and data integrity across the platform.</div>
+        <div class="project-tags"><span class="project-tag">HR Module</span><span class="project-tag">Finance</span><span class="project-tag">Regression</span><span class="project-tag">Integration</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Omnichannel · Contact Center</div>
+        <div class="project-name">Intellicon Cx9 & Cx10</div>
+        <div class="project-desc">Omnichannel contact center solutions tested for dashboards, third-party integrations, and IVR workflows — ensuring reliability at scale.</div>
+        <div class="project-tags"><span class="project-tag">IVR</span><span class="project-tag">Dashboards</span><span class="project-tag">Integrations</span><span class="project-tag">API</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow">05 — Certifications</div>
+    <h2 class="section-title">Credentials</h2>
+    <p class="section-sub">Formal certifications backing 5+ years of hands-on QA expertise.</p>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div><div class="cert-name">ISTQB-CTFL 4.0</div><div class="cert-issuer">International Software Testing Qualifications Board</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <div><div class="cert-name">Project Management Foundations</div><div class="cert-issuer">PMI / LinkedIn Learning</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">06 — Contact</div>
+    <h2 class="section-title">Let's work together</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Open to senior QA roles, contract test engagements, and remote opportunities. Based in Lahore, Pakistan — available for immediate start.</p>
+        <div class="contact-items">
+          <a class="contact-item" href="mailto:Muhammadhamza2596@gmail.com">
+            <div class="contact-item-icon">✉️</div>
+            <div><div class="contact-item-label">Email</div><div class="contact-item-val">Muhammadhamza2596@gmail.com</div></div>
+          </a>
+          <a class="contact-item" href="tel:+923217460299">
+            <div class="contact-item-icon">📞</div>
+            <div><div class="contact-item-label">Phone</div><div class="contact-item-val">+92-321-7460299</div></div>
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/muhammad-hamza-5342ab143" target="_blank">
+            <div class="contact-item-icon">💼</div>
+            <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val">linkedin.com/in/muhammad-hamza-5342ab143</div></div>
+          </a>
+          <a class="contact-item" href="#">
+            <div class="contact-item-icon">📍</div>
+            <div><div class="contact-item-label">Location</div><div class="contact-item-val">Lahore, Punjab, Pakistan</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-availability">
+        <div class="contact-avail-title">Available now</div>
+        <div class="contact-avail-desc">Looking for senior QA roles where I can apply AI-driven testing strategies, Playwright automation, and structured quality ownership to deliver high-impact results.</div>
+        <div class="avail-pills">
+          <span class="avail-pill">Full-time</span>
+          <span class="avail-pill">Contract</span>
+          <span class="avail-pill">Remote</span>
+          <span class="avail-pill">On-site Lahore</span>
+          <span class="avail-pill">Immediate start</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · MUHAMMAD HAMZA · SR. QA ENGINEER · LAHORE, PK
+</footer>
+
+</body>
+</html>
